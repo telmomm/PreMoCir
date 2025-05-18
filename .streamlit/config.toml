@@ -1,0 +1,12 @@
+[theme]
+base="light"  # o "dark", según prefieras
+
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[ui]
+hide_top_bar = true
+hide_sidebar_nav = true
