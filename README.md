@@ -16,7 +16,7 @@ Introduce los siguientes valores en los campos visibles:
 - **Creatinina preoperatoria (mg/dL)**  
   Ingrese el nivel de creatinina preoperatoria.
 
-- **Fragilidad Edmonton (0–13)**  
+- **Fragilidad Edmonton (0–17)**  
   Seleccione el nivel de fragilidad según la escala de Edmonton.
 
 - **Fecha de ingreso hospitalario**  

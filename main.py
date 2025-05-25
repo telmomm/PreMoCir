@@ -34,7 +34,7 @@ with col1:
         col1_1, col1_2 = st.columns(2)
 
         with col1_1:
-            edmonton = st.select_slider("Fragilidad Edmonton", options=list(range(14)), value=5)
+            edmonton = st.select_slider("Fragilidad Edmonton", options=list(range(18)), value=5)
         with col1_2:
             if st.button("Abrir evaluación Edmonton"):
                 modal.open()

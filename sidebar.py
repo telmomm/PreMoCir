@@ -14,7 +14,7 @@ def show_sidebar():
         - Introduce los siguientes valores en los campos visibles:
             - **Hematocrito preoperatorio (%)**
             - **Creatinina preoperatoria (mg/dL)**
-            - **Fragilidad Edmonton (0–13)**
+            - **Fragilidad Edmonton (0–17)**
             - **Fecha de ingreso hospitalario**
             - **Complicaciones MACE** (toggle): si el paciente ha tenido eventos cardiovasculares graves.
             - **Complicaciones TODAS** (toggle): si ha tenido cualquier tipo de complicación médica relevante.
