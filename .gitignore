@@ -1,0 +1,47 @@
+# Entornos virtuales
+.venv/
+env/
+venv/
+
+# Archivos de dependencias de Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Archivos de configuración de VS Code
+.vscode/
+
+# Archivos de sistema
+.DS_Store
+
+# Archivos de logs
+*.log
+
+# Archivos de salida y checkpoints
+*.out
+*.ipynb_checkpoints
+
+# Modelos y datos guardados
+*.joblib
+*.pkl
+*.h5
+*.csv
+
+# Archivos temporales
+*.tmp
+*.swp
+
+# Archivos de configuración de Jupyter
+.ipynb_checkpoints/
+
+# Archivos de configuración de Mac
+*.DS_Store
+
+# Archivos de configuración de Python
+*.egg-info/
+dist/
+
+.vscode/
+.venv/
+venv/
+__pycache__/

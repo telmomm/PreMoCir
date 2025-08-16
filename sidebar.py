@@ -1,37 +1,48 @@
 import streamlit as st
+from languages import get_translation, get_available_languages
 
 def show_sidebar():
+    # Obtener idioma actual
+    if 'language' not in st.session_state:
+        st.session_state.language = 'es'
+    
+    # Función para obtener traducción
+    def t(key):
+        return get_translation(st.session_state.language, key)
 
-    with st.sidebar.expander("❓ ¿Qué es PreMoCir?"):
-        st.markdown("""
+    with st.sidebar.expander(t("sidebar_about_title")):
+        st.markdown(t("sidebar_about_content"))
 
-        **PreMoCir** (Predicción de Mortalidad en Cirugía Cardíaca) es una herramienta de ayuda a la decisión clínica que estima la probabilidad de mortalidad de un paciente sometido a cirugía cardíaca, basándose en variables clínicas preoperatorias y datos de evolución hospitalaria. Utiliza modelos de aprendizaje automático desarrollados a partir de datos reales.
-        """)
+    with st.sidebar.expander(t("sidebar_manual_title")):
+        st.markdown(t("sidebar_manual_content"))
 
-    with st.sidebar.expander("📘 Manual de Usuario"):
-        st.markdown("""
-        ### 1. Introducción de datos
-        - Introduce los siguientes valores en los campos visibles:
-            - **Hematocrito preoperatorio (%)**
-            - **Creatinina preoperatoria (mg/dL)**
-            - **Fragilidad Edmonton (0–17)**
-            - **Fecha de ingreso hospitalario**
-            - **Complicaciones MACE** (toggle): si el paciente ha tenido eventos cardiovasculares graves.
-            - **Complicaciones TODAS** (toggle): si ha tenido cualquier tipo de complicación médica relevante.
-
-        ### 2. Realizar predicción
-        - Pulsa el botón **🔄 Realizar predicción**.
-        - La aplicación mostrará la **probabilidad de mortalidad estimada** en porcentaje.
-
-        """)
-
-    with st.sidebar.expander("⚠️ Advertencias"):
-        st.markdown("""
-        - Esta aplicación es **una herramienta de apoyo** y **no sustituye el criterio clínico profesional**.
-        - Los datos procesados **no se almacenan ni se transmiten**, garantizando privacidad y anonimato.
-        - El modelo es probabilístico y puede estar sujeto a errores inherentes al aprendizaje automático.
-        - Los resultados deben interpretarse en contexto clínico.
-
-
-        """)
-    st.sidebar.link_button("🔗 GitHub", "https://github.com/telmomm/PreMoCir/tree/main")
+    with st.sidebar.expander(t("sidebar_warnings_title")):
+        st.markdown(t("sidebar_warnings_content"))
+    
+    st.sidebar.link_button(t("sidebar_github_button"), "https://github.com/telmomm/PreMoCir/tree/main")
+    
+    # Separador
+    st.sidebar.divider()
+    
+    # Selector de idioma al final del sidebar
+    st.sidebar.subheader(t("language_selector"))
+    
+    languages = get_available_languages()
+    current_lang_index = next((i for i, (code, _, _) in enumerate(languages) if code == st.session_state.language), 0)
+    
+    # Crear opciones para el selector
+    language_options = [f"{flag} {name}" for code, name, flag in languages]
+    language_codes = [code for code, _, _ in languages]
+    
+    selected_index = st.sidebar.selectbox(
+        label="",
+        options=range(len(language_options)),
+        format_func=lambda x: language_options[x],
+        index=current_lang_index,
+        key="language_selector"
+    )
+    
+    # Actualizar idioma si cambió
+    if language_codes[selected_index] != st.session_state.language:
+        st.session_state.language = language_codes[selected_index]
+        st.rerun()
