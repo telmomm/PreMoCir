@@ -1,5 +1,6 @@
 # Imagen base ligera de Python
-FROM python:3.9-slim
+#FROM python:3.9-slim
+FROM python:3.9
 
 # Establecer directorio de trabajo
 WORKDIR /app
