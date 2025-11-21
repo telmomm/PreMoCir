@@ -1,0 +1,38 @@
+{
+    "model_path": "MODELS/M7/ecg_mortality_model.pth",
+    "evaluation_date": "2025-11-21 17:11:53",
+    "dataset_info": {
+        "total_samples": 4168,
+        "mortality_cases": 204,
+        "mortality_rate": 0.04894433915615082
+    },
+    "metrics": {
+        "auc_roc": 0.9980820027304564,
+        "accuracy": 0.9870441458733206,
+        "balanced_accuracy": 0.976914782058131,
+        "average_precision": 0.9738362863131127,
+        "f1_macro": 0.9363092219646479,
+        "f1_weighted": 0.987589682689543,
+        "matthews_cc": 0.8765834632676507,
+        "brier_score": 0.011117315185057668,
+        "best_threshold": 0.15812359750270844
+    },
+    "per_class_metrics": {
+        "class_0_survival": {
+            "precision": 0.9982161060142711,
+            "recall": 0.9881432896064581,
+            "f1_score": 0.9931541582150102
+        },
+        "class_1_mortality": {
+            "precision": 0.8073770491803278,
+            "recall": 0.9656862745098039,
+            "f1_score": 0.8794642857142857
+        }
+    },
+    "confusion_matrix": {
+        "true_negatives": 3917,
+        "false_positives": 47,
+        "false_negatives": 7,
+        "true_positives": 197
+    }
+}
