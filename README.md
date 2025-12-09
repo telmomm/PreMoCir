@@ -1,40 +1,35 @@
+
 # PreMoCir
-🔗 **Accede a la aplicación aquí:** [PreMoCir](https://premocir.streamlit.app)
 
+Live demo: https://premocir.streamlit.app
 
+Overview
+--------
+PreMoCir is a clinical prediction tool that estimates short-term mortality risk for patients undergoing cardiac procedures. The repository contains the Streamlit app, the trained model, helper scripts, and Jupyter notebooks used for data preparation and analysis.
 
+Quick user guide
+-----------------
+Inputs expected by the app:
 
-# 📘 MANUAL DE USUARIO
+- Hematocrit (preoperative) — percentage value.
+- Creatinine (preoperative) — mg/dL.
+- Edmonton Frailty Score — integer 0–17.
+- Hospital admission date — date field.
+- MACE complications (toggle) — mark if major adverse cardiovascular events occurred.
+- Any complications (toggle) — mark if any other relevant medical complication occurred.
 
-## 1. 📝 Introducción de datos
+How to run locally
+-------------------
+Requirements are listed in `requirements.txt`. A typical local run sequence is:
 
-Introduce los siguientes valores en los campos visibles:
+```bash
+python -m venv .venv
+source .venv/bin/activate  # macOS / Linux (zsh)
+pip install -r requirements.txt
+streamlit run main.py
+```
 
-- **Hematocrito preoperatorio (%)**  
-  Ingrese el valor del hematocrito antes de la operación.
+License
+-------
+This project is licensed under the Apache License 2.0. See the `LICENSE` file for details.
 
-- **Creatinina preoperatoria (mg/dL)**  
-  Ingrese el nivel de creatinina preoperatoria.
-
-- **Fragilidad Edmonton (0–17)**  
-  Seleccione el nivel de fragilidad según la escala de Edmonton.
-
-- **Fecha de ingreso hospitalario**  
-  Seleccione la fecha en que el paciente fue ingresado al hospital.
-
-- **Complicaciones MACE** *(toggle)*  
-  Actívelo si el paciente ha tenido **eventos cardiovasculares graves**.
-
-- **Complicaciones TODAS** *(toggle)*  
-  Actívelo si el paciente ha tenido **cualquier tipo de complicación médica relevante**.
-
----
-
-## 2. ⚙️ Realizar predicción
-
-1. Pulsa el botón **🔄 Realizar predicción**.
-2. La aplicación mostrará la **probabilidad de mortalidad estimada** en porcentaje.
-
----
-
-![PreMoCir](images/app.png)
